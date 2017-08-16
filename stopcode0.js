@@ -37,7 +37,7 @@ function getNextDeparturesByStopCode(stopCode) {
   return request.get(getUrl(stopCode));
 }
 
-getNextDeparturesByStopCode("68").then(
+getNextDeparturesByStopCode("40098").then(
     (response) => {
       try {
         var departures = [];
@@ -47,14 +47,14 @@ getNextDeparturesByStopCode("68").then(
           var transitMode = agency.attrib.Mode === 'Rail' ? 'train' : 'bus';
 
           agency.findall('*/Route').forEach(function(route) {
-            var routeName = route.attrib.Name;
+            var routeName = route.attrib.Name.;
 
             if (agency.attrib.HasDirection === 'True') {
               route.findall('*/RouteDirection').forEach(function(routeDirection) {
                 routeDirection.findall('*/Stop').forEach(function(stop) {
                   var routeDirectionCode = '';
                   var routeDirectionDescription = '';
-                  var stopName = stop.attrib.name;
+                  var stopName = stop.attrib.name.;
                   var times = getStopTimes(stop);
 
                   if (compassPoints.test(routeDirection.attrib.Code)) {

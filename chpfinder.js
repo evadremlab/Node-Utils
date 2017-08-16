@@ -11,7 +11,7 @@ var maxFiles;
 var fileCount = 0;
 var searchResults = {};
 var searchString = '161104GG01891';
-var testFolder = '../Downloads/DataFeedReportsPROD/';
+var testFolder = './DataFeedReports/';
 var columnLimit = 3; // so we don't capture all data fields
 var tdTag = /\<td\>|\<\/td>/gi;
 
