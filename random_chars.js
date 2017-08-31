@@ -7,22 +7,23 @@ var letters	= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numbers	= '12345678901234567890123456';
 var specials = '!#$';
 
-function getRandomInt() {
-	var min = 1, max = 26;
+function getRandomInt(max) {
+	var min = 1;
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function generateRandomChars(len) {
 	for (var i=1; i<=len; i++) {
-		var rnd = getRandomInt();
-		if (rnd < 8) {
-			randomChars.push(letters[rnd]);
-		} else if (rnd < 16) {
-			randomChars.push(letters[rnd].toLowerCase());
-		} else if (rnd < 25) {
-			randomChars.push(numbers[rnd]);
+		var index = getRandomInt(letters.length);
+		var specialIndex = getRandomInt(specials.length);
+		if (index < 8) {
+			randomChars.push(letters[index]);
+		} else if (index < 16) {
+			randomChars.push(letters[index].toLowerCase());
+		} else if (index < 25) {
+			randomChars.push(numbers[index]);
 		} else {
-			randomChars.push(specials[rnd]);
+			randomChars.push(specials[specialIndex]);
 		}
 	}
 }

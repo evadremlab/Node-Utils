@@ -58,6 +58,7 @@ function parseTrafficConditions(data) {
     });
 
     console.log(util.format('link: %s, ssml: %s\n', obj['link_id'], parts.join(' ')));
+    console.log(ssml.replace(reAudio, ''));
   });
 }
 
